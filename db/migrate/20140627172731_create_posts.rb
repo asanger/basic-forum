@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
     	t.belongs_to :user
     	t.belongs_to :topic
     	t.string :status, length: 25
+    	t.references :parent_post
       t.timestamps
     end
   end

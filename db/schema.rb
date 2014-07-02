@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627172746) do
+ActiveRecord::Schema.define(version: 20140702202657) do
 
   create_table "posts", force: true do |t|
     t.text     "message"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140627172746) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_post_id"
   end
 
   create_table "topics", force: true do |t|
