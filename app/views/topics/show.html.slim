@@ -1,0 +1,16 @@
+p#notice
+	= notice
+
+h2
+	= @topic.title
+
+p Posted By: #{@topic.user.email}
+
+= link_to 'Edit', edit_topic_path(@topic)
+|  | 
+= link_to 'Back', topics_path
+|  | 
+= link_to 'New Post', new_topic_post_path(:topic_id => @topic.id)
+
+- @topic.posts.each do |post|
+	p #{post.message}

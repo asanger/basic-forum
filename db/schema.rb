@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140627172746) do
   end
 
   create_table "topics", force: true do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.string   "status"
     t.datetime "created_at"

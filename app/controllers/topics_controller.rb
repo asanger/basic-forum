@@ -10,6 +10,8 @@ class TopicsController < ApplicationController
   # GET /topics/1
   # GET /topics/1.json
   def show
+    # Need a new post object ready to save
+    @post = Post.new
   end
 
   # GET /topics/new
@@ -25,6 +27,8 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
+    @topic.user = current_user
+    @topic.status = 'Posted'
 
     respond_to do |format|
       if @topic.save
@@ -69,6 +73,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params[:topic]
+      params[:topic].permit(:title)
     end
 end

@@ -1,0 +1,15 @@
+= current_user.email
+= form_for(@topic) do |f|
+  - if @topic.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@topic.errors.count, "error") 
+          | prohibited this topic from being saved:
+      ul
+        - @topic.errors.full_messages.each do |message|
+          li #{message}
+
+  = f.text_field :title
+
+  .actions
+    = f.submit

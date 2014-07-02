@@ -42,3 +42,6 @@ gem 'spring',        group: :development
 
 # Use devise for user authentication
 gem 'devise'
+
+# Use slim instead of erb for templating
+gem 'slim'
