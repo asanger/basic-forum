@@ -3,14 +3,16 @@
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to 'Show', post %></td>
+        <td colspan="2"><%= post.message %></td>
+      </tr>
+      <tr>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

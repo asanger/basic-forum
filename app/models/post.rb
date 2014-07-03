@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :topic
-	has_many :child_posts, class_name: "Post", foreign_key: "parent_post_id"
-	belongs_to :parent_post, class_name: "Post"
+	has_many :children, class_name: "Post", foreign_key: "parent_id"
+	belongs_to :parent, class_name: "Post"
+
+	accepts_nested_attributes_for :children
 end

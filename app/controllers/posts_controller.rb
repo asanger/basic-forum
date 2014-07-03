@@ -14,9 +14,15 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @topic = Topic.find(params[:topic_id])
-    @post = @topic.posts.new
+    @post = Post.new(parent_id: params[:parent_id])
+    puts @post.parent_id
+    # @parent = Post.find(params[:post_id])
+    # @parent.children.build
+
+    # @post = @parent.children.new
+
   end
+
 
   # GET /posts/1/edit
   def edit
@@ -25,9 +31,17 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @topic = Topic.find(params[:topic_id])
-    @post = @topic.posts.build(post_params)
-    # @post = @topic.posts.new(topic_params)
+
+    if params[:post][:parent_id].to_i > 0
+      # We use "delete" because we are not allowing it through the allowed params. We don't need it after this!
+      parent = Post.find_by_id(params[:post].delete(:parent_id))
+      @post = parent.children.build(post_params)
+      @post.topic = parent.topic
+    else
+      @post = Post.new(post_params)
+    end
+
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
@@ -39,6 +53,7 @@ class PostsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json

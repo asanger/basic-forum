@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :topics do
-    resources :posts
-  end
+  resources :topics
+
+  resources :posts, only: [:index, :create, :edit, :destroy]
+  get '/posts/(:parent_id)/new', to: "posts#new", as: :new_post
+    # post '(:parent_id)/reply', to: "posts#create"
+    # get 'reply', to: "posts#new_reply"
+    # post 'reply', to: "posts#create_reply"
+  # end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
