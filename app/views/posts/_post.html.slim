@@ -1,0 +1,7 @@
+p#notice = notice
+
+p Created at: #{post.created_at}
+p Updated at: #{post.updated_at}
+p #{post.message}
+
+= link_to "Reply", new_post_path(post)

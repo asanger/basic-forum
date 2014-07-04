@@ -11,12 +11,18 @@ class TopicsController < ApplicationController
   # GET /topics/1.json
   def show
     # Need a new post object ready to save
+    # @topic = Topic.find(params[:topic_id])
+    puts Post.hash_tree
+    puts @topic.posts.size
     @post = Post.new
+    @posts = @topic.posts.hash_tree
+
   end
 
   # GET /topics/new
   def new
     @topic = Topic.new
+    @topic.posts.build
   end
 
   # GET /topics/1/edit
@@ -27,6 +33,10 @@ class TopicsController < ApplicationController
   # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
+    @post = Post.new(post_params)
+    @post.user = current_user
+    @topic.posts << @post
+
     @topic.user = current_user
     @topic.status = 'Posted'
 
@@ -73,6 +83,10 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params[:topic].permit(:title)
+      params[:topic].permit(:title, post: [:message])
+    end
+
+    def post_params
+      params[:post].permit(:message)
     end
 end

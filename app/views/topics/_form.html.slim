@@ -11,5 +11,8 @@
 
   = f.text_field :title
 
+  = fields_for :post do |p|
+    = p.text_area :message
+
   .actions
     = f.submit

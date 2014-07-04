@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703200723) do
+ActiveRecord::Schema.define(version: 20140703204207) do
+
+  create_table "post_hierarchies", id: false, force: true do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "post_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "post_anc_desc_udx", unique: true, using: :btree
+  add_index "post_hierarchies", ["descendant_id"], name: "post_desc_idx", using: :btree
 
   create_table "posts", force: true do |t|
     t.text     "message"

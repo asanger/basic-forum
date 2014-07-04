@@ -45,3 +45,5 @@ gem 'devise'
 
 # Use slim instead of erb for templating
 gem 'slim'
+
+gem 'closure_tree'

@@ -10,6 +10,8 @@ p Posted By: #{@topic.user.email}
 |  | 
 = link_to 'Back', topics_path
 
-- @topic.posts.each do |post|
-	= render :template => 'posts/show', :locals => {:post => post}
-	hr
+= posts_tree_for @posts
+
+/ - @topic.posts.each do |post|
+/ 	= render :template => 'posts/show', :locals => {:post => post}
+/ 	hr

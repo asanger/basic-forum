@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'topics#index'
+
   devise_for :users
 
   resources :topics
