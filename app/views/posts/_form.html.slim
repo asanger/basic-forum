@@ -9,7 +9,7 @@
         - @post.errors.full_messages.each do |message|
           li #{message}
 
-  = f.text_area :message
+  = f.text_area :message, { class: 'form-control', rows: "3"}
   = f.hidden_field :parent_id
 
   .actions

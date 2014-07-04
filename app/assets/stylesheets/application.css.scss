@@ -20,19 +20,37 @@
 
 // Individual Post Styles
 
-.post {
+.container.posts {
+	background-color: lightgrey;
+
+	.message {
+		min-height: 60px;
+	}
+
+}
+
+.row.post {
+		padding: 10px 10px 10px 0;
+		background-color: white;
+		border: 1px solid black;
+}
+
+.post-children {
 	margin-left: 0px;
 
-	.post {
-		margin-left: 20px;
+	.post-children {
+		margin-left: 10px;
 
-		.post {
-			margin-left: 40px;
+		.post-children {
+			margin-left: 20px;
 
-			.post {
-				margin-left: 60px;
+			.post-children {
+				margin-left: 30px;
 			}
 		}
 	}
 }
 
+#footer {
+	height: 150px;
+}

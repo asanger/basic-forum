@@ -1,7 +1,9 @@
-row.post
-	.col-lg-12
-		span #{post.user.email} #{post.created_at}
-	.col-lg-12
+.row.post
+	.col-lg-12.text-muted
+		.pull-left #{post.user.email} 
+		.pull-right
+			.em #{post.created_at}
+	.col-lg-12.message
 		= post.message
 	.col-lg-12
 		= link_to "Reply", new_post_path(post)

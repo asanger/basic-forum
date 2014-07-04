@@ -1,16 +1,18 @@
 p#notice
 	= notice
 
-h2
-	= @topic.title
+.row.topic
+	h2
+		= @topic.title
 
-p Posted By: #{@topic.user.email}
+	p Posted By: #{@topic.user.email}
 
-= link_to 'Edit', edit_topic_path(@topic)
-|  | 
-= link_to 'Back', topics_path
+	= link_to 'Edit', edit_topic_path(@topic)
+	|  | 
+	= link_to 'Back', topics_path
 
-= posts_tree_for @posts
+.container.posts
+	= posts_tree_for @posts
 
 / - @topic.posts.each do |post|
 / 	= render :template => 'posts/show', :locals => {:post => post}

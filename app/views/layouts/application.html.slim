@@ -6,5 +6,7 @@ html
   	= csrf_meta_tags
 
 	body
+		.container
+			= yield
 
-	= yield
+		.container#footer
