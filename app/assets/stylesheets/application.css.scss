@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+// Individual Post Styles
+
+.post {
+	margin-left: 0px;
+
+	.post {
+		margin-left: 20px;
+
+		.post {
+			margin-left: 40px;
+
+			.post {
+				margin-left: 60px;
+			}
+		}
+	}
+}
+

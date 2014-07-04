@@ -47,3 +47,5 @@ gem 'devise'
 gem 'slim'
 
 gem 'closure_tree'
+
+gem 'bootstrap-sass', '~> 3.2.0'

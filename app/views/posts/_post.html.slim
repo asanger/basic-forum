@@ -1,7 +1,16 @@
-p#notice = notice
+row.post
+	.col-lg-12
+		span #{post.user.email} #{post.created_at}
+	.col-lg-12
+		= post.message
+	.col-lg-12
+		= link_to "Reply", new_post_path(post)
 
-p Created at: #{post.created_at}
-p Updated at: #{post.updated_at}
-p #{post.message}
 
-= link_to "Reply", new_post_path(post)
+
+/ Username	Timestamp
+/ --------------------------------------
+/ Message goes here.
+/ Blah blah blah blah blah blah blah
+/ 
+/ 
