@@ -78,12 +78,12 @@ class TopicsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_topic
-      @topic = Topic.find(params[:id])
+      @topic = Topic.includes(:posts).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params[:topic].permit(:title, post: [:message])
+      params[:topic].permit(:title, post_attributes: [:id, :message], initial_post_attributes: [:id, :message])
     end
 
     def post_params

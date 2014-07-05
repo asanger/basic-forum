@@ -11,7 +11,7 @@
 
   = f.text_field :title
 
-  = fields_for :post do |p|
+  = f.fields_for :initial_post do |p|
     = p.text_area :message
 
   .actions
