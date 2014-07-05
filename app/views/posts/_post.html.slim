@@ -2,10 +2,13 @@
 	.col-lg-12.text-muted
 		.pull-left #{post.user.email} 
 		.pull-right
-			.em #{post.created_at}
-	.col-lg-12.message
+			.em Posted #{time_ago_in_words(post.created_at)} ago
+	.col-lg-2.avatar
+	.col-lg-10.name
+		h4 #{post.user.email}
+	.col-lg-10.message
 		= post.message
-	.col-lg-12
+	.col-lg-10
 		= link_to "Reply", new_post_path(post)
 
 

@@ -17,11 +17,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$post-background: #F0F0F0;
 
 // Individual Post Styles
 
 .container.posts {
-	background-color: lightgrey;
+	background-color: $post-background;
 
 	.message {
 		min-height: 60px;
@@ -33,22 +34,64 @@
 		padding: 10px 10px 10px 0;
 		background-color: white;
 		border: 1px solid black;
+
+		.avatar {
+			height: 125px;
+			float: left;
+		}
 }
 
 .post-children {
-	margin-left: 0px;
+	background-color: darken( $post-background, 7% );
 
 	.post-children {
-		margin-left: 10px;
+		background-color: darken( $post-background, 14% );
 
 		.post-children {
-			margin-left: 20px;
+			background-color: darken( $post-background, 21% );
 
 			.post-children {
-				margin-left: 30px;
+				background-color: darken( $post-background, 28% );
+
+				.post-children {
+					background-color: darken( $post-background, 35% );
+
+					.post-children {
+						background-color: darken( $post-background, 42% );
+
+						.post-children {
+							background-color: darken( $post-background, 49% );
+
+							.post-children {
+								background-color: darken( $post-background, 56% );
+
+								.post-children {
+									background-color: darken( $post-background, 63% );
+
+									.post-children {
+										background-color: darken( $post-background, 70% );
+
+									}
+
+								}
+
+							}
+						}
+					}
+
+				}
+
 			}
 		}
 	}
+}
+.post-children {
+	padding-left: 15px;
+}
+
+// Woahhhh now. Don't let it go more than 10 levels deep.
+.post-children .post-children .post-children .post-children .post-children .post-children .post-children .post-children .post-children .post-children {
+	margin-left: 0;
 }
 
 #footer {
